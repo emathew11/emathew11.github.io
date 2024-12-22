@@ -187,6 +187,21 @@ p {
 /* ----- Buttons and Links ----- */
 /* --------------------------------------- */
 
+.nav__link--black {
+    color: var(--black); /* Set text color to black for these specific links */
+    font-weight: 400;
+    font-family: 'Jost', sans-serif;
+    transition: all .2s;
+    outline: 2px solid transparent;
+    text-decoration: none; /* Remove underline from these links */
+}
+
+/* Hover effect for those links */
+.nav__link--black:hover {
+    color: var(--pink); /* Keep hover effect with pink text */
+    text-decoration: none; /* Remove underline from these links */
+}
+
 a {
     color: var(--white);
     font-weight: 400;
@@ -408,7 +423,7 @@ body:not(.user-is-tabbing) a:focus {
         url('./images/header.jpg');
     height: 100vh;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-attachment: fixed;
     font-size: var(--font-size-normal);
 }
@@ -416,14 +431,27 @@ body:not(.user-is-tabbing) a:focus {
 .header__text {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* Center-align all text inside this container */  
+    background-color: var(--black);  /* Black background */
+    color: var(--white);             /* White text */
+    padding: 1rem 3rem;              /* Padding around the text */
+    border-radius: 8px;              /* Optional: Rounded corners */
+    display: inline-block;           /* Makes sure the box sizes to the text */
+    margin: 0 auto;                  /* Center the box horizontally */
 }
 
 .header__text p {
     margin: 1.5rem 0 3.5rem;
-    max-width: var(--container-medium-width);
     font-family: 'Jost', sans-serif;
     font-size: var(--font-size-medium);
+    color: var(--white);  /* Ensure text color is white */
+}
+
+.header__text a {
+    display: inline-block;
+    margin-top: 2rem;  /* Adjust space between paragraph and button */
 }
 
 @media(max-width: 500px) {
