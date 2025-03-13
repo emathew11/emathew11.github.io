@@ -243,31 +243,29 @@
   <script src="./index.js"></script>
 
   <script>
-    let index = 0;
+    let index = 0; // Start at the first image
 
-    function moveSlide(n) {
-      let slides = document.getElementsByClassName("carousel-slide");
+function moveSlide(n) {
+    let slides = document.getElementsByClassName("carousel-slide");
 
-      // Hide current slide
-      slides[index].classList.remove("active");
+    // Hide current slide
+    slides[index].classList.remove("active");
 
-      // Update index
-      index += n;
-      if (index >= slides.length) index = 0;
-      if (index < 0) index = slides.length - 1;
+    // Update index
+    index = (index + n + slides.length) % slides.length; // Prevents index out of bounds
 
-      // Show new slide
-      slides[index].classList.add("active");
+    // Show new slide
+    slides[index].classList.add("active");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let slides = document.getElementsByClassName("carousel-slide");
+
+    // Ensure only the first slide is visible initially
+    if (slides.length > 0) {
+        slides[0].classList.add("active");
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      let slides = document.getElementsByClassName("carousel-slide");
-
-      // Ensure only the first slide is visible initially
-      if (slides.length > 0) {
-          slides[0].classList.add("active");
-      } 
-      });
+});
   </script>
 
 </body>
