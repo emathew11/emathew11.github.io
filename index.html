@@ -137,26 +137,75 @@
     </section>
 
     <!-- ***** Art Section (Carousel) ***** -->
-    <section class="art" id="art">
-      <div class="row">
-        <h2>Art</h2>
-        <div class="carousel-container">
-          <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-          <div class="carousel">
-            <div class="carousel-slide"><img src="./images/art_section/butterfly_garden.jpg" alt="Butterfly Garden"></div>
-            <div class="carousel-slide"><img src="./images/art_section/overflowing_heart.jpg" alt="Overflowing Heart"></div>
-            <div class="carousel-slide"><img src="./images/art_section/pineapple_parrot.jpg" alt="Pineapple Parrot"></div>
-            <div class="carousel-slide"><img src="./images/art_section/hummingbird.jpg" alt="Hummingbird"></div>
-            <div class="carousel-slide"><img src="./images/art_section/party_elephant.jpg" alt="Party Elephant"></div>
-            <div class="carousel-slide"><img src="./images/art_section/peacock.jpg" alt="Peacock"></div>
-            <div class="carousel-slide"><img src="./images/art_section/minas_tirith.jpg" alt="Minas Tirith"></div>
-            <div class="carousel-slide"><img src="./images/art_section/seasons.jpg" alt="Seasons"></div>
-            <div class="carousel-slide"><img src="./images/art_section/watercolor_wall.jpg" alt="Watercolor Wall"></div>          
-          </div>
-          <button class="next" onclick="moveSlide(1)">&#10095;</button>
+<section class="art" id="art">
+  <div class="row">
+    <h2>Art</h2>
+    <div class="carousel-container">
+      <!-- Modified button placement: same HTML, just left as is -->
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      
+      <div class="carousel">
+        <!-- Each carousel-slide holds one image -->
+        <div class="carousel-slide">
+          <img src="./images/art_section/butterfly_garden.jpg" alt="Butterfly Garden">
+        </div>
+        <div class="carousel-slide">
+          <img src="./images/art_section/overflowing_heart.jpg" alt="Overflowing Heart">
+        </div>
+        <div class="carousel-slide">
+          <img src="./images/art_section/pineapple_parrot.jpg" alt="Pineapple Parrot">
+        </div>
+        <div class="carousel-slide">
+          <img src="./images/art_section/hummingbird.jpg" alt="Hummingbird">
+        </div>
+        <div class="carousel-slide">
+          <img src="./images/art_section/party_elephant.jpg" alt="Party Elephant">
+        </div>
+        <div class="carousel-slide">
+          <img src="./images/art_section/peacock.jpg" alt="Peacock">
+        </div>
+        <div class="carousel-slide">
+          <img src="./images/art_section/minas_tirith.jpg" alt="Minas Tirith">
+        </div>
+        <div class="carousel-slide">
+          <img src="./images/art_section/seasons.jpg" alt="Seasons">
+        </div>
+        <div class="carousel-slide">
+          <img src="./images/art_section/watercolor_wall.jpg" alt="Watercolor Wall">
         </div>
       </div>
-    </section>
+      
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Keep your carousel JS the same, just ensure you have these methods
+  let index = 0; // Start at the first image
+
+  function moveSlide(n) {
+      let slides = document.getElementsByClassName("carousel-slide");
+
+      // Hide current slide
+      slides[index].classList.remove("active");
+
+      // Update index safely
+      index = (index + n + slides.length) % slides.length;
+
+      // Show the new slide
+      slides[index].classList.add("active");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+      let slides = document.getElementsByClassName("carousel-slide");
+
+      // Show only the first slide initially
+      if (slides.length > 0) {
+          slides[0].classList.add("active");
+      }
+  });
+</script>
 
     <!-- ***** About ***** -->
 
@@ -241,32 +290,6 @@
     <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
   </a>
   <script src="./index.js"></script>
-
-  <script>
-    let index = 0; // Start at the first image
-
-function moveSlide(n) {
-    let slides = document.getElementsByClassName("carousel-slide");
-
-    // Hide current slide
-    slides[index].classList.remove("active");
-
-    // Update index
-    index = (index + n + slides.length) % slides.length; // Prevents index out of bounds
-
-    // Show new slide
-    slides[index].classList.add("active");
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    let slides = document.getElementsByClassName("carousel-slide");
-
-    // Ensure only the first slide is visible initially
-    if (slides.length > 0) {
-        slides[0].classList.add("active");
-    }
-});
-  </script>
 
 </body>
 
