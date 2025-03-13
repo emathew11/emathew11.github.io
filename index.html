@@ -136,16 +136,14 @@
       </div>
     </section>
 
-    <!-- ***** Art Section (Carousel) ***** -->
+<!-- ***** Art Section (Carousel) ***** -->
 <section class="art" id="art">
   <div class="row">
     <h2>Art</h2>
     <div class="carousel-container">
-      <!-- Modified button placement: same HTML, just left as is -->
       <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-      
+
       <div class="carousel">
-        <!-- Each carousel-slide holds one image -->
         <div class="carousel-slide">
           <img src="./images/art_section/butterfly_garden.jpg" alt="Butterfly Garden">
         </div>
@@ -174,20 +172,19 @@
           <img src="./images/art_section/watercolor_wall.jpg" alt="Watercolor Wall">
         </div>
       </div>
-      
+
       <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
   </div>
 </section>
 
 <script>
-  // Keep your carousel JS the same, just ensure you have these methods
   let index = 0; // Start at the first image
 
   function moveSlide(n) {
-      let slides = document.getElementsByClassName("carousel-slide");
+      const slides = document.getElementsByClassName("carousel-slide");
 
-      // Hide current slide
+      // Hide the current slide
       slides[index].classList.remove("active");
 
       // Update index safely
@@ -198,14 +195,13 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-      let slides = document.getElementsByClassName("carousel-slide");
-
-      // Show only the first slide initially
+      const slides = document.getElementsByClassName("carousel-slide");
       if (slides.length > 0) {
           slides[0].classList.add("active");
       }
   });
 </script>
+
 
     <!-- ***** About ***** -->
 

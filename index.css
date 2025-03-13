@@ -116,46 +116,48 @@ img {
 }
 
 /* --------------------------------------- */
-/* ----- Art Carousel (Cleaned Up) ----- */
+/* ----- Art Carousel (Updated) ----- */
 /* --------------------------------------- */
 
 .carousel-container {
     position: relative;
-    /* Center the carousel within the page/container: */
-    max-width: 900px;      /* Adjust as you like */
+    /* The carousel is centered and 75% of the viewport height */
+    width: 100%;
+    max-width: 1000px; /* optional max width, adjust as desired */
+    height: 75vh;      /* 3/4 of the screen height */
     margin: 0 auto;
     overflow: hidden;
   }
   
   .carousel {
-    /* We only need relative positioning here so that 
-       absolutely positioned slides stay within .carousel */
-    position: relative;
-    height: auto;          /* Let height adjust to content */
+    position: relative; 
+    height: 100%;       /* Match the parent container’s height */
   }
   
-  /* Each slide is stacked on top of each other (absolute).
-     Only the .active one is fully visible (opacity:1). */
   .carousel-slide {
+    /* Stacked absolutely on top of each other; only the active slide is fully visible */
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;          /* Match the .carousel width */
+    width: 100%;
+    height: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
   }
   
   .carousel-slide.active {
     opacity: 1;
-    position: relative;    /* So the active slide is on top in normal flow */
+    position: relative; /* so the active slide sits in normal flow */
   }
   
-  /* Ensure images are centered and responsive */
+  /* Scale each image to fit within the 75vh container without cropping */
   .carousel-slide img {
     display: block;
+    margin: 0 auto;          /* center horizontally */
     max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
-    margin: 0 auto;        /* Horizontally center the image */
   }
   
   /* Navigation Buttons */
@@ -181,12 +183,12 @@ img {
   }
   
   .prev {
-    left: 0;         /* Far left */
+    left: 0; 
     margin-left: 10px;
   }
   
   .next {
-    right: 0;        /* Far right */
+    right: 0; 
     margin-right: 10px;
   }
   
@@ -195,19 +197,21 @@ img {
     opacity: 1;
   }
   
-  /* You can keep any media queries you need for smaller screens */
+  /* Optional responsiveness for smaller screens */
   @media (max-width: 768px) {
     .carousel-container {
       max-width: 90%;
+      height: 60vh; /* Slightly less tall on mobile */
     }
     
     .prev,
     .next {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       width: 40px;
       height: 40px;
     }
   }
+  
 
 /* --------------------------------------- */
 /* ----- Headlines and Paragraphs ----- */
