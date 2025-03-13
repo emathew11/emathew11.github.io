@@ -244,19 +244,30 @@
 
   <script>
     let index = 0;
+
     function moveSlide(n) {
       let slides = document.getElementsByClassName("carousel-slide");
+
+      // Hide current slide
+      slides[index].classList.remove("active");
+
+      // Update index
       index += n;
       if (index >= slides.length) index = 0;
       if (index < 0) index = slides.length - 1;
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[index].style.display = "block";
+
+      // Show new slide
+      slides[index].classList.add("active");
     }
+
     document.addEventListener("DOMContentLoaded", function () {
-      moveSlide(0);
-    });
+      let slides = document.getElementsByClassName("carousel-slide");
+
+      // Ensure only the first slide is visible initially
+      if (slides.length > 0) {
+          slides[0].classList.add("active");
+      } 
+      });
   </script>
 
 </body>
