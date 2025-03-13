@@ -122,7 +122,7 @@ img {
 .carousel-container {
     position: relative;
     width: 100vw;
-    height: 70vh; /* Reduced height to ensure it fits well on screen */
+    height: 70vh; /* Adjusted height for better centering */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,11 +131,11 @@ img {
   
   .carousel {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-    height: 100%;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
   
   .carousel-slide {
@@ -147,9 +147,11 @@ img {
   }
   
   .carousel-slide img {
-    max-width: 60%; /* Makes images smaller */
-    max-height: 60vh; /* Keeps the image within the viewport */
-    object-fit: contain; /* Ensures the aspect ratio is preserved */
+    max-width: 60vw; /* Ensures images are smaller and properly fit */
+    max-height: 60vh; /* Prevents images from taking too much space */
+    object-fit: contain; /* Maintains aspect ratio */
+    display: block; /* Ensures proper centering */
+    margin: auto; /* Centers image horizontally */
   }
   
   /* Navigation Buttons */
@@ -168,11 +170,11 @@ img {
   }
   
   .prev {
-    left: 5%;
+    left: 2%; /* Ensures visibility */
   }
   
   .next {
-    right: 5%;
+    right: 2%; /* Ensures visibility */
   }
   
   .prev:hover, .next:hover {
@@ -186,8 +188,13 @@ img {
     }
   
     .carousel-slide img {
-      max-width: 80%; /* Allow images to be slightly larger on mobile */
+      max-width: 80vw; /* Slightly larger on smaller screens */
       max-height: 50vh;
+    }
+  
+    .prev, .next {
+      font-size: 2rem; /* Adjust button size for smaller screens */
+      padding: 1rem;
     }
   }
 
